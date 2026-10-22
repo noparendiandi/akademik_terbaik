@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPK Mahasiswa Terbaik | SAW</title>
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--ink:#17243b;--muted:#748198;--line:#e6ebf2;--primary:#4f46e5;--primary2:#6d63f5;--teal:#0f9f8f;--gold:#d99a18;--red:#dc5252;--shadow:0 12px 32px rgba(26,43,76,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);font-size:14px}button,input{font:inherit}button{cursor:pointer;transition:.18s ease}button:focus-visible,input:focus-visible{outline:3px solid #c7d2fe;outline-offset:2px}
+.app{display:flex;min-height:100vh}.sidebar{width:250px;flex-shrink:0;background:#171d35;color:#dbe2f1;padding:25px 17px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 30px}.brand-mark{height:42px;width:42px;border-radius:13px;background:linear-gradient(135deg,#7c73ff,#4f46e5);display:grid;place-items:center;color:#fff;font-size:21px;font-weight:800;box-shadow:0 8px 18px #4f46e544}.brand-name{font-weight:800;font-size:16px;letter-spacing:.2px;color:#fff}.brand-sub{font-size:10px;color:#9da9c5;margin-top:4px;letter-spacing:1.2px}.nav-label{font-size:10px;color:#818daa;font-weight:800;letter-spacing:1.5px;padding:10px 13px}.nav-item{display:flex;align-items:center;gap:12px;padding:12px 13px;margin:3px 0;border-radius:10px;color:#aeb9d1;text-decoration:none;font-weight:600}.nav-item.active{background:linear-gradient(100deg,#5148d7,#6258e9);color:#fff;box-shadow:0 7px 16px #4f46e533}.nav-icon{font-size:17px;width:20px;text-align:center}.sidebar-bottom{margin-top:auto;border-top:1px solid #303751;padding:18px 10px 0;color:#9aa6c1;font-size:11px;line-height:1.7}.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4bd3ad;margin-right:6px}
+.main{flex:1;min-width:0;padding:28px 34px 42px;max-width:1700px;margin:0 auto;width:100%}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;color:var(--primary);margin-bottom:7px}.page-title{font-size:27px;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.8px}.subtitle{margin:8px 0 0;color:var(--muted);font-size:13px}.top-actions{display:flex;gap:10px;align-items:center}.date-chip{padding:10px 13px;border:1px solid var(--line);background:#fff;border-radius:10px;color:#65728a;font-size:12px;font-weight:600;white-space:nowrap}.avatar{width:39px;height:39px;border-radius:13px;background:#e8e7ff;color:#5148d7;font-weight:800;display:grid;place-items:center}
+.section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 14px}.section-heading h2{font-size:16px;margin:0;font-weight:800;letter-spacing:-.2px}.section-heading p{margin:5px 0 0;color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.stat-card,.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat-card{padding:21px 22px;position:relative;overflow:hidden}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-weight:650;font-size:12px}.stat-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-size:19px}.violet{background:#eeedff;color:#5c50e8}.green{background:#e1f8f1;color:#0d9b7d}.amber{background:#fff3d8;color:#b77c0d}.stat-value{font-size:29px;font-weight:850;letter-spacing:-1px;margin:15px 0 5px}.stat-foot{font-size:11px;color:var(--muted)}.stat-foot strong{color:var(--teal)}.stat-accent{position:absolute;right:-25px;bottom:-42px;width:115px;height:115px;border:18px solid #f3f2ff;border-radius:50%;pointer-events:none}
+.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(310px,1fr);gap:18px;align-items:start}.panel{padding:22px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}.panel-title{margin:0;font-size:15px;font-weight:800}.panel-desc{color:var(--muted);font-size:12px;margin:6px 0 0;line-height:1.5}.pill{background:#f0efff;color:#5b50d9;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:800;white-space:nowrap}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:#56637a;font-weight:750}.field input{width:100%;border:1px solid #dfe5ef;border-radius:9px;padding:11px 12px;background:#fbfcfe;color:var(--ink);outline:none}.field input:focus{border-color:#827af3;box-shadow:0 0 0 3px #eeedff}.field input::placeholder{color:#a8b1c1}.field-hint{font-size:10px;color:#8a96a9;margin-top:-2px}.btn{border:0;border-radius:9px;padding:11px 15px;font-size:12px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background:var(--primary);color:#fff;box-shadow:0 6px 13px #4f46e52b}.btn-primary:hover{background:#4038c9;transform:translateY(-1px)}.btn-light{background:#f3f5fa;color:#59657b;border:1px solid #e5e9f1}.btn-light:hover{background:#e9edf5}.btn-danger{background:#fff0f0;color:#c84141;border:1px solid #ffdede}.btn-small{padding:7px 10px;font-size:11px}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.weights{display:flex;flex-direction:column;gap:18px}.weight-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.weight-name{font-weight:750;font-size:12px}.weight-val{font-weight:800;color:var(--primary);font-size:12px}.weight-control{display:flex;align-items:center;gap:12px}.weight-control input[type=range]{width:100%;accent-color:var(--primary);cursor:pointer}.weight-number{width:65px!important;padding:8px 7px!important;text-align:center;background:#fbfcff!important}.weight-track{height:6px;background:#edf0f7;border-radius:99px;overflow:hidden;margin-top:8px}.weight-fill{height:100%;background:linear-gradient(90deg,#8178ff,#4f46e5);border-radius:99px}.weight-total{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border-radius:10px;background:#f7f8fc;margin-top:20px}.weight-total span{font-size:12px;color:#66738a;font-weight:650}.weight-total strong{font-size:16px}.weight-total.invalid{background:#fff0f0;color:#c84141}.weight-note{font-size:11px;color:#8490a4;line-height:1.6;margin:13px 0 0}.weight-actions{display:flex;gap:9px;margin-top:16px}.weight-actions .btn{flex:1}
+.results-panel{margin-top:20px;padding:0;overflow:hidden}.results-header{padding:22px 22px 17px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.results-actions{display:flex;gap:8px;flex-wrap:wrap}.searchbox{position:relative}.searchbox input{border:1px solid #e1e6ef;background:#fafbfe;border-radius:9px;padding:10px 12px 10px 34px;font-size:12px;width:205px}.searchbox span{position:absolute;left:12px;top:8px;color:#8b96a8;font-size:15px}.table-wrap{overflow-x:auto;border-top:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:920px}thead{background:#f8f9fc}th{padding:13px 15px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:#8792a5;font-weight:800;white-space:nowrap}td{padding:14px 15px;border-top:1px solid #edf0f5;font-size:12px;color:#4d5b72;white-space:nowrap}tbody tr:hover{background:#fbfcff}.student-cell{display:flex;align-items:center;gap:10px}.student-avatar{width:33px;height:33px;border-radius:10px;background:#eeedff;color:#5d53d9;display:grid;place-items:center;font-size:10px;font-weight:850}.student-name{font-weight:750;color:#243149;font-size:12px}.student-nim{font-size:10px;color:#909bad;margin-top:3px}.rank{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:#f0f2f7;color:#77839a;font-weight:850}.rank.first{background:#fff1ca;color:#b17a00}.rank.second{background:#e9eef8;color:#647696}.rank.third{background:#f9e8dc;color:#a66c40}.score{font-weight:850;color:#3f37c9;font-variant-numeric:tabular-nums}.bar-cell{display:flex;align-items:center;gap:8px}.mini-bar{width:54px;height:5px;border-radius:20px;background:#edf0f7;overflow:hidden}.mini-bar span{display:block;height:100%;background:#7770ed;border-radius:20px}.status{padding:6px 8px;border-radius:7px;font-size:10px;font-weight:800;background:#e3f8ef;color:#128361}.status.mid{background:#fff4da;color:#ad780d}.row-actions{display:flex;gap:6px}.icon-btn{border:1px solid #e6eaf1;background:#fff;border-radius:7px;width:29px;height:29px;color:#7c879b}.icon-btn:hover{background:#f0efff;color:#5549dc}.empty{padding:45px 20px;text-align:center;color:#8b96a8}.empty-icon{width:52px;height:52px;background:#f2f3fa;border-radius:15px;display:grid;place-items:center;font-size:24px;margin:0 auto 13px}.empty strong{display:block;color:#44516a;margin-bottom:6px;font-size:13px}.empty p{margin:0;font-size:12px}
+.toast{position:fixed;right:24px;bottom:24px;padding:13px 17px;border-radius:11px;background:#17243b;color:#fff;box-shadow:0 12px 30px #10182b30;font-size:12px;font-weight:650;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s;z-index:20}.toast.show{opacity:1;transform:translateY(0)}.toast.error{background:#b83b45}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;color:#98a2b3;font-size:10px}.footer strong{color:#77839a}
+@media(max-width:1100px){.sidebar{width:210px}.main{padding:24px}.content-grid{grid-template-columns:1fr}.stats{gap:12px}.stat-card{padding:17px}}@media(max-width:760px){.sidebar{display:none}.main{padding:20px 14px 30px}.topbar{align-items:flex-start}.page-title{font-size:23px}.date-chip{display:none}.stats{grid-template-columns:1fr}.stat-card{min-height:135px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:17px}.results-header{padding:18px;flex-direction:column}.results-actions{width:100%}.searchbox{width:100%}.searchbox input{width:100%}.section-heading{margin-top:24px}.weight-actions{flex-direction:column}.top-actions{gap:6px}.avatar{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">S</div><div><div class="brand-name">SAW<span style="color:#938cff">.</span> Scholar</div><div class="brand-sub">DECISION SUPPORT SYSTEM</div></div></div>
+    <div class="nav-label">MENU UTAMA</div>
+    <a class="nav-item active" href="#dashboard"><span class="nav-icon">▦</span> Dashboard</a>
+    <a class="nav-item" href="#form-mahasiswa"><span class="nav-icon">♙</span> Data Mahasiswa</a>
+    <a class="nav-item" href="#bobot"><span class="nav-icon">⚖</span> Bobot Kriteria</a>
+    <a class="nav-item" href="#hasil"><span class="nav-icon">▤</span> Hasil Perangkingan</a>
+    <div class="sidebar-bottom"><div><span class="status-dot"></span>Sistem berjalan normal</div><div style="margin-top:8px">Metode Simple Additive Weighting (SAW)<br>© 2026 SAW Scholar</div></div>
+  </aside>
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div><div class="eyebrow">Decision support system</div><h1 class="page-title">Dashboard Mahasiswa Terbaik</h1><p class="subtitle">Kelola data, atur kriteria, dan tentukan peringkat mahasiswa secara objektif.</p></div>
+      <div class="top-actions"><div class="date-chip" id="today">◷ Memuat tanggal...</div><div class="avatar">AD</div></div>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card"><div class="stat-top"><span>Jumlah Mahasiswa</span><span class="stat-icon violet">♙</span></div><div class="stat-value" id="stat-count">0</div><div class="stat-foot">Data mahasiswa terdaftar</div><div class="stat-accent"></div></article>
+      <article class="stat-card"><div class="stat-top"><span>Rata-rata Skor SAW</span><span class="stat-icon green">⌁</span></div><div class="stat-value" id="stat-average">0,000</div><div class="stat-foot">Dari seluruh skor akhir</div><div class="stat-accent" style="border-color:#e9faf4"></div></article>
+      <article class="stat-card"><div class="stat-top"><span>Mahasiswa Terbaik</span><span class="stat-icon amber">♛</span></div><div class="stat-value" id="stat-best" style="font-size:21px;letter-spacing:-.4px">—</div><div class="stat-foot" id="stat-best-score">Belum ada hasil perangkingan</div><div class="stat-accent" style="border-color:#fff7e6"></div></article>
+    </section>
+
+    <div class="section-heading"><div><h2>Kelola Data & Kriteria</h2><p>Masukkan data mahasiswa dan sesuaikan bobot penilaian.</p></div></div>
+    <section class="content-grid">
+      <article class="panel" id="form-mahasiswa">
+        <div class="panel-head"><div><h3 class="panel-title" id="form-title">Tambah Data Mahasiswa</h3><p class="panel-desc">Lengkapi informasi akademik berikut untuk dihitung menggunakan metode SAW.</p></div><span class="pill">DATA MAHASISWA</span></div>
+        <form id="student-form">
+          <div class="form-grid">
+            <div class="field"><label for="nim">NIM</label><input id="nim" name="nim" placeholder="Contoh: 23101001" required maxlength="30"></div>
+            <div class="field"><label for="nama">Nama Mahasiswa</label><input id="nama" name="nama" placeholder="Nama lengkap mahasiswa" required maxlength="100"></div>
+            <div class="field"><label for="kehadiran">Kehadiran (%)</label><input id="kehadiran" name="kehadiran" type="number" min="0" max="100" step="0.01" placeholder="0–100" required><span class="field-hint">Masukkan persentase kehadiran (0–100).</span></div>
+            <div class="field"><label for="tugas">Nilai Tugas</label><input id="tugas" name="tugas" type="number" min="0" max="100" step="0.01" placeholder="0–100" required><span class="field-hint">Skala nilai 0 sampai 100.</span></div>
+            <div class="field full"><label for="keaktifan">Keaktifan di Kelas</label><input id="keaktifan" name="keaktifan" type="number" min="0" max="100" step="0.01" placeholder="0–100" required><span class="field-hint">Gunakan skala 0–100 agar semua kriteria sebanding.</span></div>
+          </div>
+          <div class="form-actions"><button class="btn btn-primary" type="submit" id="save-btn">＋ Simpan Mahasiswa</button><button class="btn btn-light" type="button" id="cancel-edit" style="display:none">Batal Edit</button><button class="btn btn-light" type="button" id="sample-btn">▧ Muat Data Contoh</button></div>
+        </form>
+      </article>
+
+      <article class="panel" id="bobot">
+        <div class="panel-head"><div><h3 class="panel-title">Pengaturan Bobot Kriteria</h3><p class="panel-desc">Bobot menentukan kontribusi setiap kriteria pada skor akhir.</p></div><span class="pill">METODE SAW</span></div>
+        <div class="weights">
+          <div class="weight-item"><div class="weight-head"><span class="weight-name">C1 · Kehadiran (%)</span><span class="weight-val" id="label-w1">40%</span></div><div class="weight-control"><input type="range" id="range-w1" min="0" max="100" value="40" aria-label="Bobot kehadiran"><input class="weight-number" id="w1" type="number" min="0" max="100" value="40" aria-label="Nilai bobot kehadiran"></div><div class="weight-track"><div class="weight-fill" id="fill-w1" style="width:40%"></div></div></div>
+          <div class="weight-item"><div class="weight-head"><span class="weight-name">C2 · Nilai Tugas (%)</span><span class="weight-val" id="label-w2">35%</span></div><div class="weight-control"><input type="range" id="range-w2" min="0" max="100" value="35" aria-label="Bobot nilai tugas"><input class="weight-number" id="w2" type="number" min="0" max="100" value="35" aria-label="Nilai bobot tugas"></div><div class="weight-track"><div class="weight-fill" id="fill-w2" style="width:35%"></div></div></div>
+          <div class="weight-item"><div class="weight-head"><span class="weight-name">C3 · Keaktifan (%)</span><span class="weight-val" id="label-w3">25%</span></div><div class="weight-control"><input type="range" id="range-w3" min="0" max="100" value="25" aria-label="Bobot keaktifan"><input class="weight-number" id="w3" type="number" min="0" max="100" value="25" aria-label="Nilai bobot keaktifan"></div><div class="weight-track"><div class="weight-fill" id="fill-w3" style="width:25%"></div></div></div>
+        </div>
+        <div class="weight-total" id="weight-total"><span>Total bobot</span><strong id="total-value">100%</strong></div>
+        <p class="weight-note">Semua kriteria menggunakan jenis <strong>benefit</strong>: nilai lebih tinggi lebih baik. Total bobot harus tepat 100% untuk menerapkan perubahan.</p>
+        <div class="weight-actions"><button class="btn btn-primary" type="button" id="apply-weights">✓ Terapkan Bobot</button><button class="btn btn-light" type="button" id="reset-all">Reset Semua Data</button></div>
+      </article>
+    </section>
+
+    <section class="panel results-panel" id="hasil">
+      <div class="results-header"><div><h3 class="panel-title">Data & Hasil Perangkingan</h3><p class="panel-desc">Peringkat diperbarui berdasarkan bobot SAW yang aktif.</p></div><div class="results-actions"><div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Cari NIM atau nama..."></div><button class="btn btn-light" id="export-btn">⇩ Ekspor CSV</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Rank</th><th>NIM / Nama Mahasiswa</th><th>Kehadiran</th><th>Nilai Tugas</th><th>Keaktifan</th><th>Skor SAW</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="table-body"></tbody></table><div class="empty" id="empty-state"><div class="empty-icon">▤</div><strong>Belum ada data mahasiswa</strong><p>Tambahkan data mahasiswa atau klik “Muat Data Contoh”.</p></div></div>
+    </section>
+    <div class="footer"><span>© 2026 <strong>SAW Scholar</strong> · Sistem Pendukung Keputusan Mahasiswa Terbaik</span><span>Metode: Simple Additive Weighting · Kriteria benefit</span></div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const STORAGE_KEY = 'saw-scholar-students-v1';
+  const WEIGHT_KEY = 'saw-scholar-weights-v1';
+  const defaultWeights = [40, 35, 25];
+  let students = [];
+  let weights = [...defaultWeights];
+  let editingNim = null;
+  let toastTimer;
+
+  $('today').textContent = '◷ ' + new Intl.DateTimeFormat('id-ID',{day:'2-digit',month:'short',year:'numeric'}).format(new Date());
+
+  function showToast(message, error=false) {
+    const el=$('toast'); el.textContent=message; el.classList.toggle('error',error); el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2800);
+  }
+  function safeText(value) {
+    return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function fmt(value, digits=2) { return Number(value).toLocaleString('id-ID',{minimumFractionDigits:digits,maximumFractionDigits:digits}); }
+  function loadSaved() {
+    try {
+      const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+      if(Array.isArray(s)) students=s.filter(x=>x && typeof x.nim==='string' && typeof x.nama==='string').map(x=>({...x,kehadiran:Number(x.kehadiran),tugas:Number(x.tugas),keaktifan:Number(x.keaktifan)}));
+      const w=JSON.parse(localStorage.getItem(WEIGHT_KEY)||'null');
+      if(Array.isArray(w)&&w.length===3&&w.every(n=>Number.isFinite(n)&&n>=0&&n<=100)&&w.reduce((a,b)=>a+b,0)===100) weights=w;
+    } catch(e) { students=[]; weights=[...defaultWeights]; }
+  }
+  function persist() {
+    try { localStorage.setItem(STORAGE_KEY,JSON.stringify(students)); localStorage.setItem(WEIGHT_KEY,JSON.stringify(weights)); }
+    catch(e) { showToast('Data tidak dapat disimpan di browser ini.',true); }
+  }
+  function rankedStudents() {
+    const max=[0,0,0];
+    students.forEach(s=>{max[0]=Math.max(max[0],s.kehadiran);max[1]=Math.max(max[1],s.tugas);max[2]=Math.max(max[2],s.keaktifan);});
+    return students.map(s=>{
+      const vals=[s.kehadiran,s.tugas,s.keaktifan];
+      const score=vals.reduce((sum,v,i)=>sum+(max[i]===0?0:v/max[i])*(weights[i]/100),0);
+      return {...s,score};
+    }).sort((a,b)=>b.score-a.score || a.nama.localeCompare(b.nama,'id'));
+  }
+  function initials(name) { return name.trim().split(/\s+/).slice(0,2).map(s=>s[0]||'').join('').toUpperCase(); }
+
+  function renderWeights() {
+    weights.forEach((v,i)=>{
+      $('w'+(i+1)).value=v; $('range-w'+(i+1)).value=v;
+      $('label-w'+(i+1)).textContent=v+'%'; $('fill-w'+(i+1)).style.width=v+'%';
+    });
+    const total=weights.reduce((a,b)=>a+b,0);
+    $('total-value').textContent=total+'%';
+    $('weight-total').classList.toggle('invalid',total!==100);
+  }
+  function render() {
+    const ranked=rankedStudents();
+    $('stat-count').textContent=students.length.toLocaleString('id-ID');
+    $('stat-average').textContent=ranked.length?fmt(ranked.reduce((a,s)=>a+s.score,0)/ranked.length,3):'0,000';
+    $('stat-best').textContent=ranked.length?ranked[0].nama:'—';
+    $('stat-best-score').textContent=ranked.length?'Skor SAW '+fmt(ranked[0].score,3)+' · Peringkat #1':'Belum ada hasil perangkingan';
+    const query=$('search').value.trim().toLocaleLowerCase('id');
+    const visible=ranked.filter(s=>s.nim.toLocaleLowerCase('id').includes(query)||s.nama.toLocaleLowerCase('id').includes(query));
+    $('table-body').innerHTML=visible.map(s=>{
+      const rank=ranked.findIndex(x=>x.nim===s.nim)+1;
+      const rankClass=rank===1?'first':rank===2?'second':rank===3?'third':'';
+      const status=rank===1?'Terbaik':s.score>=0.65?'Kandidat':'Terdaftar';
+      const statusClass=rank===1||s.score>=0.65?'':'mid';
+      return `<tr>
+        <td><span class="rank ${rankClass}">${rank}</span></td>
+        <td><div class="student-cell"><div class="student-avatar">${safeText(initials(s.nama))}</div><div><div class="student-name">${safeText(s.nama)}</div><div class="student-nim">${safeText(s.nim)}</div></div></div></td>
+        <td>${fmt(s.kehadiran)}%</td><td>${fmt(s.tugas)}</td><td>${fmt(s.keaktifan)}</td>
+        <td><div class="bar-cell"><span class="score">${fmt(s.score,3)}</span><span class="mini-bar"><span style="width:${Math.max(0,Math.min(100,s.score*100))}%"></span></span></div></td>
+        <td><span class="status ${statusClass}">${status}</span></td>
+        <td><div class="row-actions"><button class="icon-btn" title="Edit mahasiswa" aria-label="Edit ${safeText(s.nama)}" data-edit="${safeText(s.nim)}">✎</button><button class="icon-btn" title="Hapus mahasiswa" aria-label="Hapus ${safeText(s.nama)}" data-delete="${safeText(s.nim)}">×</button></div></td>
+      </tr>`;
+    }).join('');
+    $('empty-state').style.display=visible.length?'none':'block';
+    if(students.length && !visible.length) {
+      $('empty-state').innerHTML='<div class="empty-icon">⌕</div><strong>Data tidak ditemukan</strong><p>Coba kata kunci NIM atau nama yang lain.</p>';
+    } else {
+      $('empty-state').innerHTML='<div class="empty-icon">▤</div><strong>Belum ada data mahasiswa</strong><p>Tambahkan data mahasiswa atau klik “Muat Data Contoh”.</p>';
+    }
+  }
+  function resetForm() {
+    $('student-form').reset(); editingNim=null; $('form-title').textContent='Tambah Data Mahasiswa'; $('save-btn').textContent='＋ Simpan Mahasiswa'; $('cancel-edit').style.display='none'; $('nim').disabled=false;
+  }
+  $('student-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const nim=$('nim').value.trim(), nama=$('nama').value.trim();
+    const kehadiran=Number($('kehadiran').value), tugas=Number($('tugas').value), keaktifan=Number($('keaktifan').value);
+    if(!nim||!nama) return showToast('NIM dan nama mahasiswa wajib diisi.',true);
+    if([kehadiran,tugas,keaktifan].some(v=>!Number.isFinite(v)||v<0||v>100)) return showToast('Nilai setiap kriteria harus antara 0–100.',true);
+    if(students.some(s=>s.nim.toLowerCase()===nim.toLowerCase()&&s.nim!==editingNim)) return showToast('NIM sudah terdaftar. Gunakan NIM yang berbeda.',true);
+    const record={nim,nama,kehadiran,tugas,keaktifan};
+    if(editingNim) {
+      const idx=students.findIndex(s=>s.nim===editingNim); if(idx>=0) students[idx]=record;
+      showToast('Data mahasiswa berhasil diperbarui.');
+    } else { students.push(record); showToast('Mahasiswa berhasil disimpan.'); }
+    persist(); resetForm(); render();
+  });
+  $('cancel-edit').addEventListener('click',resetForm);
+  $('table-body').addEventListener('click',e=>{
+    const edit=e.target.closest('[data-edit]'), del=e.target.closest('[data-delete]');
+    if(edit) {
+      const s=students.find(x=>x.nim===edit.dataset.edit); if(!s)return;
+      editingNim=s.nim; $('nim').value=s.nim; $('nim').disabled=true; $('nama').value=s.nama;
+      $('kehadiran').value=s.kehadiran; $('tugas').value=s.tugas; $('keaktifan').value=s.keaktifan;
+      $('form-title').textContent='Edit Data Mahasiswa'; $('save-btn').textContent='✓ Simpan Perubahan'; $('cancel-edit').style.display='inline-flex';
+      $('form-mahasiswa').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    if(del) {
+      const s=students.find(x=>x.nim===del.dataset.delete); if(!s)return;
+      if(confirm(`Hapus data mahasiswa ${s.nama} (${s.nim})?`)) {
+        students=students.filter(x=>x.nim!==s.nim); if(editingNim===s.nim)resetForm(); persist();render();showToast('Data mahasiswa telah dihapus.');
+      }
+    }
+  });
+  $('search').addEventListener('input',render);
+  [1,2,3].forEach(n=>{
+    $('range-w'+n).addEventListener('input',e=>{$('w'+n).value=e.target.value;});
+    $('w'+n).addEventListener('input',e=>{
+      const v=Math.max(0,Math.min(100,Number(e.target.value)||0)); $('range-w'+n).value=v;
+    });
+  });
+  $('apply-weights').addEventListener('click',()=>{
+    const next=[1,2,3].map(n=>Number($('w'+n).value));
+    if(next.some(v=>!Number.isFinite(v)||v<0||v>100)||next.reduce((a,b)=>a+b,0)!==100) {
+      renderWeights(); $('weight-total').classList.add('invalid'); showToast('Total bobot harus tepat 100%. Periksa kembali bobot.',true); return;
+    }
+    weights=next; persist();renderWeights();render();showToast('Bobot berhasil diterapkan. Peringkat diperbarui.');
+  });
+  $('reset-all').addEventListener('click',()=>{
+    if(!confirm('Reset semua data mahasiswa dan bobot ke pengaturan awal? Tindakan ini tidak dapat dibatalkan.'))return;
+    students=[];weights=[...defaultWeights];resetForm();$('search').value='';persist();renderWeights();render();showToast('Semua data telah direset.');
+  });
+  $('sample-btn').addEventListener('click',()=>{
+    const examples=[
+      {nim:'23101001',nama:'Aditya Pratama',kehadiran:96,tugas:92,keaktifan:90},
+      {nim:'23101002',nama:'Nadia Putri',kehadiran:98,tugas:88,keaktifan:95},
+      {nim:'23101003',nama:'Rizky Ramadhan',kehadiran:90,tugas:95,keaktifan:86},
+      {nim:'23101004',nama:'Siti Aulia',kehadiran:94,tugas:90,keaktifan:92},
+      {nim:'23101005',nama:'Bima Saputra',kehadiran:85,tugas:87,keaktifan:89},
+      {nim:'23101006',nama:'Dewi Anggraini',kehadiran:91,tugas:93,keaktifan:88}
+    ];
+    const existing=new Set(students.map(s=>s.nim.toLowerCase()));
+    const added=examples.filter(s=>!existing.has(s.nim.toLowerCase()));
+    if(!added.length){showToast('Data contoh sudah tersedia.');return;}
+    students.push(...added);persist();render();showToast(added.length+' data contoh berhasil ditambahkan.');
+  });
+  $('export-btn').addEventListener('click',()=>{
+    if(!students.length){showToast('Belum ada data untuk diekspor.',true);return;}
+    const rows=[['Rank','NIM','Nama Mahasiswa','Kehadiran (%)','Nilai Tugas','Keaktifan di Kelas','Skor SAW','Status']];
+    rankedStudents().forEach((s,i)=>rows.push([i+1,s.nim,s.nama,s.kehadiran,s.tugas,s.keaktifan,s.score.toFixed(6),i===0?'Mahasiswa Terbaik':s.score>=0.65?'Kandidat':'Terdaftar']));
+    const csv='\uFEFF'+rows.map(row=>row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='hasil-perangkingan-saw.csv';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast('File CSV berhasil diekspor.');
+  });
+  document.querySelectorAll('.nav-item').forEach(a=>a.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));a.classList.add('active');
+  }));
+  loadSaved();renderWeights();render();
+})();
+</script>
+</body>
+</html>
